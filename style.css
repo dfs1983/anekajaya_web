@@ -115,6 +115,25 @@ footer{
 
 .btn:hover{
   opacity: .7;
+  background-color: #d89e1a;
+}
+
+.search {
+	padding:15px 0;
+	background-color: #fff;
+	border:1px solid #ccc;
+	text-align: center;
+}
+.search input[type=text] {
+	width: 60%;
+	padding:10px;
+}
+.search input[type=submit] {
+	padding:12px 15px;
+	background-color: #C70039;
+	color:#fff;
+	border:none;
+	cursor: pointer;
 }
  
 .page-content{

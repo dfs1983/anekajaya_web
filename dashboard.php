@@ -1,19 +1,20 @@
 <?php
-    session_start();
-    if($_SESSION['status_login'] != true){
-        echo '<script>window.location="login.php"</script>';
-    }
+session_start();
+if ($_SESSION['status_login'] != true) {
+    echo '<script>window.location="login.php"</script>';
+}
 ?>
 <!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Aneka Jaya</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="images\icon_anekajaya.ico">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aneka Jaya</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images\icon_anekajaya.ico">
+    <script src="https://kit.fontawesome.com/7d288b9368.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -63,7 +64,7 @@
     </nav>
     <div class="section">
         <div class="container">
-            <h3>Selamat Datang <?php echo $_SESSION['a_global']->admin_name?> di Aneka Jaya Toko Material</h3>
+            <h3>Selamat Datang <?php echo $_SESSION['a_global']->admin_name ?> di Aneka Jaya Toko Material</h3>
         </div>
     </div>
     <footer>

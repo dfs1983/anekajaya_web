@@ -8,9 +8,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="images\icon_anekajaya.ico">
+  <script src="https://kit.fontawesome.com/7d288b9368.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+  <!--Navigasi Bar-->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <img src="images/logo_anekajaya(2).png" width="50" height="50" alt="Logo">
@@ -47,7 +49,7 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Lokasi</a>
+            <a class="nav-link" href="#ptlokasi">Lokasi</a>
           </li>
         </ul>
         <a class="navbar-brand" href="https://web.whatsapp.com/">
@@ -59,14 +61,19 @@
         <a class="navbar-brand" href="#">
           <img src="images/icons8-shopping-basket-96.png" width="24" height="24">
         </a>
-
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Cari Disini" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Cari</button>
-        </form>
       </div>
     </div>
   </nav>
+  <!-- search -->
+  <div class="search">
+    <div class="container-fluid p-2" style="background-color: rgb(216, 158, 26);">
+      <form action="produk.php">
+        <input type="text" name="search" placeholder="Cari Produk">
+        <input type="submit" name="cari" value="Cari Produk">
+      </form>
+    </div>
+  </div>
+
   <!--Slide Show-->
   <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -95,88 +102,150 @@
     </button>
   </div>
   <br>
-  <h2 style="font-size: 20px; margin-left: 5px;">Kategori Produk</h2>
+
   <!--Konten barang-->
-  <div class="row row-cols-1 row-cols-md-5 g-4">
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+  <div class="container-fluid">
+    <h2 style="font-size: 20px; margin-left: 5px;">Kategori Produk</h2>
+    <div class="section">
+      <div class="container">
+        <h3>Kategori</h3>
+        <div class="box">
+          <?php
+          $kategori = mysqli_query($conn, "SELECT * FROM tb_category ORDER BY category_id DESC");
+          if (mysqli_num_rows($kategori) > 0) {
+            while ($k = mysqli_fetch_array($kategori)) {
+          ?>
+              <a href="produk.php?kat=<?php echo $k['category_id'] ?>">
+                <div class="col-5">
+                  <img src="img/icon-kategori.png" width="50px" style="margin-bottom:5px;">
+                  <p><?php echo $k['category_name'] ?></p>
+                </div>
+              </a>
+            <?php }
+          } else { ?>
+            <p>Kategori tidak ada</p>
+          <?php } ?>
         </div>
       </div>
     </div>
   </div>
-  <br>
-  <h2 style="font-size: 20px; margin-left: 5px;">Kategori Brand</h2>
-  
-  <br>
 
-  <footer>
-    <div class="footer-container">
-      <div class="left-col">
-        <img src="images/logo_anekajaya.png" alt="" class="logo">
-        <div class="social-media">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+  <!--Kategori Brand-->
+  <br>
+  <div class="container-fluid">
+    <h2 style="font-size: 20px; margin-left: 5px;">Kategori Brand</h2>
+    <footer class="text-center text-white" style="background-color: #caced1;">
+      <!-- Grid container -->
+      <div class="container p-4">
+        <!-- Section: Images -->
+        <section class="">
+          <div class="row">
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+                <img src="" class="w-100" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+                <img src="" class="w-100" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+                <img src="" class="w-100" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+                <img src="" class="w-100" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+                <img src="" class="w-100" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                </a>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-12 mb-4 mb-md-0">
+              <div class="bg-image hover-overlay ripple shadow-1-strong rounded" data-ripple-color="light">
+                <img src="" class="w-100" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.2);"></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Section: Images -->
+      </div>
+    </footer>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start bg-light text-muted">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>Dapatkan informasi terbaru melalui media sosial kami :</span>
+      </div>
+      <!-- Left -->
+
+      <!-- Right -->
+      <div>
+        <a href="" class="me-4 link-secondary">
+          <i class="fa-brands fa-square-facebook"></i>
+        </a>
+        <a href="" class="me-4 link-secondary">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 link-secondary">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Location  -->
+    <section class="" id="ptlokasi">
+      <div class="container text-center text-md-start mt-5">
+        <div class="row mt-3">
+          <div class="col-5 mx-auto mb-4">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.1120328158636!2d112.72661141459535!3d-7.341314294702125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb884619284f%3A0x6998b9b720594b0a!2sMitra10%20Ahmad%20Yani%2C%20Surabaya!5e0!3m2!1sid!2sid!4v1667971658470!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <!-- Grid column -->
+          <div class="col-5 mx-auto mb-4">
+            <h1>Our Newsletter</h1>
+            <div class="border"></div>
+            <p>Dapatkan informasi terbaru dengan daftar.</p>
+            <form action="" class="newsletter-form">
+              <input type="text" class="txtb" placeholder="Enter Your Email">
+              <input type="submit" class="btn" value="Register">
+            </form>
+          </div>
         </div>
-        <p class="rights-text">2022 Created By <b>Kelompok 9</b></p>
       </div>
-
-      <div class="right-col">
-        <h1>Our Newsletter</h1>
-        <div class="border"></div>
-        <p>Enter Your Email to get our news and updates.</p>
-        <form action="" class="newsletter-form">
-          <input type="text" class="txtb" placeholder="Enter Your Email">
-          <input type="submit" class="btn" value="submit">
-        </form>
+      <!-- Grid row -->
       </div>
+    </section>
+    <!-- Section: Links  -->
+    <div class="text-center p-2" style="background-color: rgb(216, 158, 26); color:whitesmoke;">
+      Dibuat oleh <b>Kelompok 9 TI 2020 B</b>
     </div>
   </footer>
 
