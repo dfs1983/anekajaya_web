@@ -52,7 +52,7 @@
                         <a class="nav-link" href="jumlah-konsumen.php">Jumlah Konsumen</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Data Supplier</a>
+                        <a class="nav-link" href="datasupplier.php">Data Supplier</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="profil.php">Profil</a>
