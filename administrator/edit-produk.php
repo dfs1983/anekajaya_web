@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'db.php';
+include 'include_admin/db.php';
 if ($_SESSION['status_login'] != true) {
 	echo '<script>window.location="login.php"</script>';
 }
@@ -11,35 +11,12 @@ if (mysqli_num_rows($produk) == 0) {
 }
 $p = mysqli_fetch_object($produk);
 ?>
-<!DOCTYPE html>
-<html>
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Anekajaya</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-	<script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-	<script src="https://kit.fontawesome.com/7d288b9368.js" crossorigin="anonymous"></script>
-</head>
+<?php include "include_admin/header.php" ?>
 
 <body>
-	<!-- header -->
-	<header>
-		<div class="container">
-			<h1><a href="dashboard.php">Anekajaya</a></h1>
-			<ul>
-				<li><a href="dashboard.php">Dashboard</a></li>
-				<li><a href="profil.php">Profil</a></li>
-				<li><a href="data-kategori.php">Data Kategori</a></li>
-				<li><a href="data-produk.php">Data Produk</a></li>
-				<li><a href="keluar.php">Keluar</a></li>
-			</ul>
-		</div>
-	</header>
+	<?php include "include_admin/navbar.php" ?>
 
-	<!-- content -->
 	<div class="section">
 		<div class="container">
 			<h3>Edit Data Produk</h3>
@@ -67,7 +44,7 @@ $p = mysqli_fetch_object($produk);
 						<option value="1" <?php echo ($p->product_status == 1) ? 'selected' : ''; ?>>Aktif</option>
 						<option value="0" <?php echo ($p->product_status == 0) ? 'selected' : ''; ?>>Tidak Aktif</option>
 					</select>
-					<input type="submit" name="submit" value="Submit" class="btn">
+					<input type="submit" name="submit" value="Submit" class="btnn">
 				</form>
 				<?php
 				if (isset($_POST['submit'])) {
@@ -131,12 +108,7 @@ $p = mysqli_fetch_object($produk);
 		</div>
 	</div>
 
-	<!-- footer -->
-	<footer>
-		<div class="container">
-			<small>Copyright &copy; 2022 - Anekajaya.</small>
-		</div>
-	</footer>
+	<?php include "include_admin/banner.php" ?>
 	<script>
 		CKEDITOR.replace('deskripsi');
 	</script>

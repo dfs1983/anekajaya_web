@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 03, 2022 at 04:45 AM
+-- Generation Time: Nov 23, 2022 at 05:41 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -73,6 +73,29 @@ INSERT INTO `tb_category` (`category_id`, `category_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_konsumen`
+--
+
+CREATE TABLE `tb_konsumen` (
+  `konsumen_id` int(11) NOT NULL,
+  `konsumen_name` varchar(50) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `konsumen_telp` varchar(20) NOT NULL,
+  `konsumen_email` varchar(50) NOT NULL,
+  `konsumen_address` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_konsumen`
+--
+
+INSERT INTO `tb_konsumen` (`konsumen_id`, `konsumen_name`, `username`, `password`, `konsumen_telp`, `konsumen_email`, `konsumen_address`) VALUES
+(1, 'Anggun Kurniatul', 'aaaaa', '594f803b380a41396ed63dca39503542', '088888888888', 'anggunaa11@gmail.com', 'Jl. Raya');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_product`
 --
 
@@ -92,7 +115,28 @@ CREATE TABLE `tb_product` (
 --
 
 INSERT INTO `tb_product` (`product_id`, `category_id`, `product_name`, `product_price`, `product_description`, `product_image`, `product_status`, `date_created`) VALUES
-(2, 7, 'Batubata Merah', 700000, '<p>Batubata merah 1000 biji</p>\r\n', 'produk1667427670.jpg', 0, '2022-11-02 22:21:10');
+(3, 7, 'Batubata Merah', 700000, '100buah batu bata merah', 'produk1669217932.jpg', 0, '2022-11-23 15:38:52');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_supplier`
+--
+
+CREATE TABLE `tb_supplier` (
+  `Idsupplier` int(11) NOT NULL,
+  `NamaSupplier` varchar(100) NOT NULL,
+  `Alamat` text NOT NULL,
+  `Kontak` varchar(15) NOT NULL,
+  `Produk` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_supplier`
+--
+
+INSERT INTO `tb_supplier` (`Idsupplier`, `NamaSupplier`, `Alamat`, `Kontak`, `Produk`) VALUES
+(3, 'Budi', 'Jl. Xxx', '081344567894', 'Batu Bata');
 
 --
 -- Indexes for dumped tables
@@ -111,11 +155,23 @@ ALTER TABLE `tb_category`
   ADD PRIMARY KEY (`category_id`);
 
 --
+-- Indexes for table `tb_konsumen`
+--
+ALTER TABLE `tb_konsumen`
+  ADD PRIMARY KEY (`konsumen_id`);
+
+--
 -- Indexes for table `tb_product`
 --
 ALTER TABLE `tb_product`
   ADD PRIMARY KEY (`product_id`),
   ADD KEY `category_id` (`category_id`);
+
+--
+-- Indexes for table `tb_supplier`
+--
+ALTER TABLE `tb_supplier`
+  ADD PRIMARY KEY (`Idsupplier`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -134,10 +190,22 @@ ALTER TABLE `tb_category`
   MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
+-- AUTO_INCREMENT for table `tb_konsumen`
+--
+ALTER TABLE `tb_konsumen`
+  MODIFY `konsumen_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `tb_product`
 --
 ALTER TABLE `tb_product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tb_supplier`
+--
+ALTER TABLE `tb_supplier`
+  MODIFY `Idsupplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

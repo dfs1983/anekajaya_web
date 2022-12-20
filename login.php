@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Aneka Jaya</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images\icon_anekajaya.ico">
-    <script src="https://kit.fontawesome.com/7d288b9368.js" crossorigin="anonymous"></script>
 </head>
 
 <body id="bg-login">
@@ -17,7 +16,7 @@
         <form action="" method="POST">
             <input type="text" name="user" placeholder="Username" class="input-control">
             <input type="password" name="pass" placeholder="Password" class="input-control">
-            <input type="submit" name="submit" value="Login" class="btn">
+            <input type="submit" name="submit" value="Login" class="btnn">
         </form>
         <?php
         if (isset($_POST['submit'])) {
@@ -32,12 +31,13 @@
                 $_SESSION['status_login'] = true;
                 $_SESSION['a_global'] = $d;
                 $_SESSION['id'] = $d->admin_id;
-                echo '<script>window.location="dashboard.php"</script>';
+                echo '<script>window.location="kustomer/dashboard.php"</script>';
             } else {
                 echo '<script>alert("Username atau password anda salah")</script>';
             }
         }
         ?>
+        <p>Belum punya akun? <a href="signup.php">Registrasi</a></p>
     </div>
 </body>
 

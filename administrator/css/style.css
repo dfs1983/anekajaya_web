@@ -202,3 +202,36 @@ justify-content: center;
   box-sizing: border-box;
   margin: 10px 0;
 }
+
+
+.huge {
+    font-size:40px;
+    line-height:normal;
+}
+
+.panel-green > .panel-heading{
+    color:#fff;
+    background-color:#5cd85c;
+}
+
+.panel-green > a{
+    color:#5cd85c;
+}
+
+.panel-red > .panel-heading{
+    color:#fff;
+    background-color:#d9534f;
+}
+
+.panel-red > a{
+    color:#d9534f;
+}
+
+.panel-yellow > .panel-heading{
+    color:#fff;
+    background-color:#f0ad4e;
+}
+
+.panel-yellow > a{
+    color:#f0ad4e;
+}
