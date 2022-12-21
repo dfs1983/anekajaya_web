@@ -89,7 +89,7 @@
               </div>
               <div class="card-body text-end">
                 <a href="detail-produk.php?id=<?php echo $p['product_id'] ?>" class="btn btn-warning">Detail</a>
-                <a href="#" class="btn btn-warning" type="beli">Beli</a>
+                <a href="keranjang.php" class="btn btn-warning" type="beli">Beli</a>
               </div>
             </div>
 

@@ -46,6 +46,8 @@ $p = mysqli_fetch_object($produk);
                     <p>Deskripsi :<br>
                         <?php echo $p->product_description ?>
                     </p>
+                    <a href="keranjang.php" class="btn btn-warning" type="beli">Beli</a>
+                    <br>
                     <p><a href="https://api.whatsapp.com/send?phone=<?php echo $a->admin_telp ?>&text=Hai, saya tertarik dengan produk Anda." target="_blank">
                             Hubungin via Whatsapp
                             <img src="images/wa.png" width="50px"></a>

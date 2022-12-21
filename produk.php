@@ -43,13 +43,17 @@ $a = mysqli_fetch_object($kontak);
 				if (mysqli_num_rows($produk) > 0) {
 					while ($p = mysqli_fetch_array($produk)) {
 				?>
-						<a href="detail-produk.php?id=<?php echo $p['product_id'] ?>">
-							<div class="col-4">
-								<img src="produk/<?php echo $p['product_image'] ?>">
-								<p class="nama"><?php echo substr($p['product_name'], 0, 30) ?></p>
-								<p class="harga">Rp. <?php echo number_format($p['product_price']) ?></p>
+						<div class="card col-4" style="width:18rem;">
+							<img src="produk/<?php echo $p['product_image'] ?>" class="card-img-top" alt="<?php echo substr($p['product_name'], 0, 30) ?>" height="200px" width="50px">
+							<div class="card-body">
+								<h5 class="card-title" style="font-size: 18px;"><?php echo substr($p['product_name'], 0, 30) ?></h5>
+								<p class="card-text">Rp.<?php echo number_format($p['product_price']) ?></p>
 							</div>
-						</a>
+							<div class="card-body text-end">
+								<a href="detail-produk.php?id=<?php echo $p['product_id'] ?>" class="btn btn-warning">Detail</a>
+								<a href="keranjang.php" class="btn btn-warning" type="beli">Beli</a>
+							</div>
+						</div>
 					<?php }
 				} else { ?>
 					<p>Produk tidak ada</p>
@@ -57,7 +61,7 @@ $a = mysqli_fetch_object($kontak);
 			</div>
 		</div>
 	</div>
-	<?php 
+	<?php
 	include "include/footer.php";
 	include "include/banner.php";
 	?>

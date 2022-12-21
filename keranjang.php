@@ -24,7 +24,7 @@
 
                     $ip_add = getRealUserIp();
 
-                    $select_cart = "select * from cart where ip_add='$ip_add'";
+                    $select_cart = "SELECT * FROM cart where ip_add='$ip_add'";
                     $run_cart = mysqli_query($con, $select_cart);
                     $count = mysqli_num_rows($run_cart);
                     ?>
@@ -40,7 +40,6 @@
                                     <th colspan="2">Product</th>
                                     <th>Quantity</th>
                                     <th>Unit Price</th>
-                                    <th>Size</th>
                                     <th colspan="1">Delete</th>
                                     <th colspan="2"> Sub Total </th>
                                 </tr>
@@ -134,100 +133,25 @@
                         $delete_product = "delete from cart where p_id='$remove_id'";
                         $run_delete = mysqli_query($con, $delete_product);
                         if ($run_delete) {
-                            echo "<script>window.open('cart.php','_self')</script>";
+                            echo "<script>window.open('keranjang.php','_self')</script>";
                         }
                     }
                 }
             }
             echo @$up_cart = update_cart();
             ?>
-
-
-            <div id="row same-height-row">
-                <!-- row same-height-row Starts -->
-                <div class="col-md-3 col-sm-6">
-                    <!-- col-md-3 col-sm-6 Starts -->
-                    <div class="box same-height headline">
-                        <!-- box same-height headline Starts -->
-                        <h3 class="text-center"> You may like these Products </h3>
-                    </div><!-- box same-height headline Ends -->
-                </div><!-- col-md-3 col-sm-6 Ends -->
-
-                <?php
-
-                $get_products = "SELECT * FROM products order by rand() LIMIT 0,3";
-                $run_products = mysqli_query($con, $get_products);
-                while ($row_products = mysqli_fetch_array($run_products)) {
-                    $pro_id = $row_products['product_id'];
-                    $pro_title = $row_products['product_title'];
-                    $pro_price = $row_products['product_price'];
-                    $pro_img1 = $row_products['product_img1'];
-                    $pro_label = $row_products['product_label'];
-                    $pro_psp_price = $row_products['product_psp_price'];
-                    $pro_url = $row_products['product_url'];
-
-                    if ($pro_label == "Sale" or $pro_label == "Gift") {
-                        $product_price = "<del> $$pro_price </del>";
-                        $product_psp_price = "| $$pro_psp_price";
-                    } else {
-                        $product_psp_price = "";
-                        $product_price = "$$pro_price";
-                    }
-
-
-                    if ($pro_label == "") {
-                    } else {
-                        $product_label = "
-
-<a class='label sale' href='#' style='color:black;'>
-<div class='thelabel'>$pro_label</div>
-<div class='label-background'> </div>
-</a>
-
-";
-                    }
-
-
-                    echo "
-
-<div class='col-md-3 col-sm-6 center-responsive' >
-<div class='product' >
-<a href='$pro_url' >
-<img src='admin_area/product_images/$pro_img1' class='img-responsive' >
-</a>
-<div class='text' >
-<center>
-<p class='btn btn-warning'> $manufacturer_name </p>
-</center>
-<hr>
-<h3><a href='$pro_url' >$pro_title</a></h3>
-<p class='price' > $product_price $product_psp_price </p>
-<p class='buttons' >
-<a href='$pro_url' class='btn btn-default' >View Details</a>
-<a href='$pro_url' class='btn btn-danger'>
-<i class='fa fa-shopping-cart'></i> Add To Cart
-</a>
-</p>
-</div>
-$product_label
-</div>
-</div>
-";
-                }
-                ?>
-
-            </div><!-- row same-height-row Ends -->
         </div><!-- col-md-9 Ends -->
+
         <div class="col-md-3">
             <!-- col-md-3 Starts -->
             <div class="box" id="order-summary">
                 <!-- box Starts -->
                 <div class="box-header">
                     <!-- box-header Starts -->
-                    <h3>Order Summary</h3>
+                    <h3>Ringkasan Pembayaran</h3>
                 </div><!-- box-header Ends -->
                 <p class="text-muted">
-                    Shipping and additional costs are calculated based on the values you have entered.
+                    Berikut tagihan yang harus dibayar :
                 </p>
 
                 <div class="table-responsive">
@@ -240,15 +164,6 @@ $product_label
                                 <td> Order Subtotal </td>
                                 <th> $<?php echo $total; ?>.00 </th>
                             </tr>
-                            <tr>
-                                <td> Shipping and handling </td>
-                                <th>$0.00</th>
-                            </tr>
-                            <tr>
-                                <td>Tax</td>
-                                <th>$0.00</th>
-                            </tr>
-
                             <tr class="total">
                                 <td>Total</td>
                                 <th>$<?php echo $total; ?>.00</th>
