@@ -7,43 +7,36 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="index.php">Beranda</a>
+                    <a class="nav-link" aria-current="page" href="index.php" style="color: whitesmoke;">Beranda</a>
                     <!--kembali ke beranda-->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about.php">Tentang</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Semua Produk
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Bahan Konstruksi</a></li>
-                        <li><a class="dropdown-item" href="#">Dekorasi</a></li>
-                        <li><a class="dropdown-item" href="#">Peralatan Tangan</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <h4 style="margin-left: 15px; font-size: 15px; color:black;">Kategori</h4>
-                        <li><a class="dropdown-item" href="#">Laundry</a></li>
-                        <li><a class="dropdown-item" href="#">Penyimpanan</a></li>
-                        <li><a class="dropdown-item" href="#">Kamar Mandi</a></li>
-                        <li><a class="dropdown-item" href="#">Dapur</a></li>
-                        <li><a class="dropdown-item" href="#">Taman</a></li>
-                        <li><a class="dropdown-item" href="#">Otomotif</a></li>
-                    </ul>
+                    <a class="nav-link" href="about.php" style="color: whitesmoke;">Tentang</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#ptlokasi">Lokasi</a>
+                    <a class="nav-link" href="#katalog_produk" style="color: whitesmoke;">Katalog Produk</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="lokasi-toko.php" style="color: whitesmoke;">Lokasi</a>
                 </li>
             </ul>
+            <div class="currency" style="color: whitesmoke;">
+                <?php
+                if (!isset($_SESSION['konsumen_email'])) {
+                    echo "Selamat Datang : Guest";
+                } else {
+                    echo "Selamat Datang : " . $_SESSION['konsumen_email'] . "";
+                }
+                ?>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
             <a class="navbar-brand" href="https://web.whatsapp.com/">
                 <img src="images/icons8-whatsapp-96.png" width="25" height="25">
             </a>
             <a class="navbar-brand" href="login.php">
                 <img src="images/icons8-account-96.png" width="24" height="24">
             </a>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="keranjang.php">
                 <img src="images/icons8-shopping-basket-96.png" width="24" height="24">
             </a>
         </div>

@@ -1,5 +1,6 @@
-<?php session_start();
-include 'db.php'; ?>
+<?php 
+	session_start();
+	include 'db.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -40,15 +41,13 @@ include 'db.php'; ?>
 					$konsumen_email = ucwords($_POST['konsumen_email']);
 					$address = ucwords($_POST['konsumen_address']);
 
-					$insert = mysqli_query($conn, "INSERT INTO tb_konsumen (konsumen_id, konsumen_name, username, passowrd,
-					konsumen_telp, konsumen_email, konsumen_address) VALUES (
-											null,
-											'" . $konsumen_name . "'),
-                                            '" . $username . "'),
-                                            '" . $password . "'),
-                                            '" . $konsumen_telp . "'),
-                                            '" . $konsumen_email . "'),
-                                            '" . $konsumen_address . "'), ");
+					$insert = mysqli_query($conn, "INSERT INTO tb_konsumen (konsumen_name,username,password,konsumen_telp,konsumen_email,konsumen_address) VALUES (
+											'$konsumen_name',
+                                            '$username',
+                                            '$password',
+                                            '$konsumen_telp',
+                                            '$konsumen_email',
+                                            '$konsumen_address')");
 					if ($insert) {
 						echo '<script>alert("Registrasi berhasil")</script>';
 						echo '<script>window.location="index.php"</script>';

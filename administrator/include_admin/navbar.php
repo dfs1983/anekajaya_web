@@ -19,14 +19,8 @@
                         <li><a class="dropdown-item" href="data-produk.php">Data Produk</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Catatan Penjualan
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Catatan Penjualan Harian</a></li>
-                        <li><a class="dropdown-item" href="#">Catatan Penjualan Bulanan</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" href="data-penjualan.php">Catatan Penjualan</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="jumlah-konsumen.php">Jumlah Konsumen</a>

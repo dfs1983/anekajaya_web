@@ -3,12 +3,11 @@
 <?php include "include/header.php"; ?>
 
 <body>
-  <!--Navigasi Bar-->
   <?php include "include/navbar.php"; ?>
 
   <!-- search -->
   <div class="search">
-    <div class="container-fluid p-2" style="background-color: rgb(216, 158, 26);">
+    <div class="container-fluid p-2">
       <form action="produk.php">
         <input type="text" name="search" placeholder="Cari Produk">
         <input type="submit" name="cari" value="Cari Produk">
@@ -58,7 +57,7 @@
           ?>
               <a href="produk.php?kat=<?php echo $k['category_id'] ?>">
                 <div class="col-5">
-                  <img src="img/icon-kategori.png" width="50px" style="margin-bottom:5px;">
+                  <img src="images/icon-kategori.png" width="50px" style="margin-bottom:5px;">
                   <p><?php echo $k['category_name'] ?></p>
                 </div>
               </a>
@@ -72,28 +71,35 @@
   </div>
 
   <!--Produk-->
-  <div class="section">
+  <div class="section" id="katalog_produk">
     <div class="container">
       <h3>Katalog Produk</h3>
       <div class="box">
         <?php
-        $produk = mysqli_query($conn, "SELECT * FROM tb_product WHERE product_status = 1 ORDER BY product_id DESC LIMIT 8");
+        $produk = mysqli_query($conn, "SELECT * FROM tb_product WHERE product_status = 1 ORDER BY product_id DESC");
         if (mysqli_num_rows($produk) > 0) {
           while ($p = mysqli_fetch_array($produk)) {
         ?>
-            <a href="detail-produk.php?id=<?php echo $p['product_id'] ?>">
-              <div class="col-4">
-                <img src="produk/<?php echo $p['product_image'] ?>">
-                <p class="nama"><?php echo substr($p['product_name'], 0, 30) ?></p>
-                <p class="harga">Rp. <?php echo number_format($p['product_price']) ?></p>
+
+            <div class="card col-4" style="width:18rem;">
+              <img src="produk/<?php echo $p['product_image'] ?>" class="card-img-top" alt="<?php echo substr($p['product_name'], 0, 30) ?>" height="200px" width="50px">
+              <div class="card-body">
+                <h5 class="card-title" style="font-size: 18px;"><?php echo substr($p['product_name'], 0, 30) ?></h5>
+                <p class="card-text">Rp.<?php echo number_format($p['product_price']) ?></p>
               </div>
-            </a>
+              <div class="card-body text-end">
+                <a href="detail-produk.php?id=<?php echo $p['product_id'] ?>" class="btn btn-warning">Detail</a>
+                <a href="#" class="btn btn-warning" type="beli">Beli</a>
+              </div>
+            </div>
+
           <?php }
         } else { ?>
           <p>Produk tidak ada</p>
         <?php } ?>
       </div>
     </div>
+  </div>
   </div>
 
   <?php include "include/footer.php" ?>

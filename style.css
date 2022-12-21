@@ -22,12 +22,13 @@ padding: 0;
 @import url('https://fonts.googleapis.com/css2?family=Yaldevi:wght@400;600&display=swap');
 span{
 color: #d89e1a;
-font-weight:900;
+font-weight:800;
 
 }
 
 footer{
 background: #f1f1f1;
+padding: 1px 0;
 }
 
 .footer-container{
@@ -56,9 +57,6 @@ text-decoration: none;
 transition: .3s linear;
 }
 
-.social-media a:hover{
-color: #2b316c;
-}
 
 .right-col h1{
 font-size: 26px;
@@ -90,20 +88,6 @@ border-radius: 30px;
 min-width: 260px;
 }
 
-.btn{
-padding: 18px 40px;
-font-size: 16px;
-color: #f1f1f1;
-background: #d89e1a;
-border: none;
-font-weight: 700;
-outline: none;
-border-radius: 30px;
-margin-left: 20px;
-cursor: pointer;
-transition: opacity .3s linear;
-}
-
 .btnn{
 padding: 8px 15px;
 background-color: #2b316c;
@@ -118,7 +102,7 @@ background-color: #d89e1a;
 }
 
 .search {
-padding:15px 0;
+padding:2px 0;
 background-color: #fff;
 border:1px solid #ccc;
 text-align: center;
@@ -129,7 +113,7 @@ padding:10px;
 }
 .search input[type=submit] {
 padding:12px 15px;
-background-color: #C70039;
+background-color: #d89e1a;
 color:#fff;
 border:none;
 cursor: pointer;
@@ -201,4 +185,78 @@ justify-content: center;
   padding: 15px;
   box-sizing: border-box;
   margin: 10px 0;
+}
+.box:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.col-5{
+  width: 20%;
+  height: 100px;
+  border: 1px solid;
+  text-align: center;
+  float: left;
+	padding:10px;
+	box-sizing: border-box;
+}
+.container{
+  width: 80%;
+  margin: 0 auto;
+}
+.container:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+.section {
+	padding:25px 0;
+}
+.col-4 {
+	width:25%;
+	height: 360px;
+	border:1px solid #ccc;
+	float: left;
+	padding:10px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+}
+.col-4:hover {
+	box-shadow: 0 0 3px #999;
+}
+.col-4 img {
+	width: 100%;
+}
+.col-4 .nama {
+	color: #666;
+	margin-bottom: 5px;
+}
+.col-4 .harga {
+	font-weight: bold;
+	color:#C70039;
+	float: right;
+}
+.col-2 {
+	width: 50%;
+	min-height: 200px;
+	padding:10px;
+	box-sizing: border-box;
+	float: left;
+}
+.col-2 img {
+	border:1px solid #f9f9f9;
+	padding:5px;
+	box-sizing: border-box;
+}
+.col-2 h3 {
+	margin-bottom: 10px;
+}
+.col-2 h4 {
+	color: #C70039;
+}
+.col-2 p {
+	margin:15px 0;
+	text-align: justify;
+	line-height: 25px;
+	font-size:14px;
 }
